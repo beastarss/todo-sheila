@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
+const dns = require("dns");
 
+// Pakai DNS Google secara eksplisit untuk bypass blokir ISP
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 async function connectDB() {
   try {
     const uri = process.env.MONGODB_URI;
