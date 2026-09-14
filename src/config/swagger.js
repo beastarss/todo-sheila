@@ -1,3 +1,4 @@
+const path = require("path");
 const swaggerJSDoc = require("swagger-jsdoc");
 
 const options = {
@@ -17,7 +18,7 @@ const options = {
         description: "Local development server",
       },
       {
-        url: "https://todo-api-1w7t.vercel.app",
+        url: "https://todo-api-rach.vercel.app", // Sesuaikan dengan domain Vercel kamu saat ini
         description: "Production server",
       },
     ],
@@ -81,7 +82,8 @@ const options = {
     },
   },
 
-  apis: ["./src/routes/*.js"],
+  // Diubah menggunakan path.join dan __dirname agar aman di Vercel
+  apis: [path.join(__dirname, "../routes/*.js")],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
