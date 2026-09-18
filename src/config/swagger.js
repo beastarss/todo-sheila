@@ -83,7 +83,7 @@ const options = {
   },
 
   // Diubah menggunakan path.join dan __dirname agar aman di Vercel
- apis: ["./src/routes/*.routes.js"],
+  apis: [path.join(__dirname, "../routes/*.routes.js")],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
