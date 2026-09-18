@@ -18,7 +18,7 @@ const options = {
         description: "Local development server",
       },
       {
-        url: "https://todo-api-rach.vercel.app", // Sesuaikan dengan domain Vercel kamu saat ini
+        url: "https://todo-api-26zq.vercel.app", // Disesuaikan dengan domain Vercel Anda saat ini
         description: "Production server",
       },
     ],
@@ -82,7 +82,9 @@ const options = {
     },
   },
 
-  // Diubah menggunakan path.join dan __dirname agar aman di Vercel
+  // Pastikan path ini sesuai: 
+  // Jika swagger.js ada di folder config/, gunakan "../routes/*.routes.js"
+  // Jika swagger.js ada langsung di folder src/, gunakan "./routes/*.routes.js"
   apis: [path.join(__dirname, "../routes/*.routes.js")],
 };
 
