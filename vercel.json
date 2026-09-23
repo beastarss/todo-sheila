@@ -14,7 +14,7 @@
   ],
   "functions": {
     "src/server.js": {
-      "includeFiles": "src/routes/**"
+      "includeFiles": "src/**"
     }
   }
 }
