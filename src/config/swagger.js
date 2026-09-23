@@ -1,3 +1,4 @@
+const path = require("path");
 const swaggerJSDoc = require("swagger-jsdoc");
  
 const options = {
@@ -27,24 +28,24 @@ const options = {
           name: "x-api-key",
         },
       },
-       schemas: {
-    Todo: {
-      type: "object",
-      properties: {
-        _id: { type: "string", example: "665f1c2e8b1e2a1a2c3d4e5f" },
-        title: { type: "string", example: "Belajar Swagger" },
-        description: { type: "string", example: "Menulis dokumentasi endpoint todo" },
-        completed: { type: "boolean", example: false },
-        owner: { type: "string", example: "665f1a2b8b1e2a1a2c3d1111" },
-        createdAt: { type: "string", format: "date-time" },
-        updatedAt: { type: "string", format: "date-time" },
+      schemas: {
+        Todo: {
+          type: "object",
+          properties: {
+            _id: { type: "string", example: "665f1c2e8b1e2a1a2c3d4e5f" },
+            title: { type: "string", example: "Belajar Swagger" },
+            description: { type: "string", example: "Menulis dokumentasi endpoint todo" },
+            completed: { type: "boolean", example: false },
+            owner: { type: "string", example: "665f1a2b8b1e2a1a2c3d1111" },
+            createdAt: { type: "string", format: "date-time" },
+            updatedAt: { type: "string", format: "date-time" },
+          },
+        },
       },
     },
   },
-},
-},
-  // Swagger akan mencari komentar dokumentasi di semua file route
-  apis: ["./src/routes/*.js"],
+  // Menggunakan path.join dan __dirname agar jalurnya aman dibaca di Vercel maupun lokal
+  apis: [path.join(__dirname, "../routes/*.js")],
 };
  
 const swaggerSpec = swaggerJSDoc(options);
