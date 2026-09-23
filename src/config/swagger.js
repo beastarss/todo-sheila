@@ -1,4 +1,3 @@
-const path = require("path");
 const swaggerJSDoc = require("swagger-jsdoc");
 
 const options = {
@@ -44,7 +43,8 @@ const options = {
       },
     },
   },
-  apis: [path.join(__dirname, "../routes/*.js").replace(/\\/g, "/")],
+  // Swagger akan mencari komentar dokumentasi di semua file route
+  apis: ["./src/routes/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
